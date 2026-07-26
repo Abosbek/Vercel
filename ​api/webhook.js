@@ -12,7 +12,6 @@ function buildEnv() {
 module.exports = async (req, res) => {
   const env = buildEnv();
 
-  // https://SIZNING-SAYT.vercel.app/api/webhook?setup=1 — webhookni ulash uchun (bir marta ochiladi)
   if (req.method === "GET" && req.query.setup === "1") {
     const proto = req.headers["x-forwarded-proto"] || "https";
     const host = req.headers["host"];
@@ -45,4 +44,3 @@ module.exports = async (req, res) => {
 
   res.status(200).send("ok");
 };
-
